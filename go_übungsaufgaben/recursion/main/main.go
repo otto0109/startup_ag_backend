@@ -1,15 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func main() {
-	fmt.Println(fac(5))
+	startTime := time.Now()
+	fmt.Println(fib(100))
+	fmt.Println(time.Since(startTime))
 }
 
-func fac(x int) int {
-	if x == 0 {
-		return 1
-	}
+func fib(x uint) uint {
 
-	return fac(x-1) * x
+	if x == 0 {
+		return 0
+	} else if x == 1 {
+		return 1
+	} else {
+		return fib(x-1) + fib(x-2)
+	}
 }
